@@ -18,10 +18,10 @@ export default class Menu extends Component {
                             <li><Link to="/goals">Goals</Link></li>
                             <li><Link to="/spanish">Español</Link></li>
                         </ul>
-                        <ul class="hide-on-large-only tabs tabs-fixed-width tab-demo z-depth-1 mobile">
-                            <li class="tab"><Link to="/" className="active">Highlights</Link></li>
-                            <li class="tab"><Link to="/goals">Goals</Link></li>
-                            <li class="tab"><Link to="/spanish">Español</Link></li>
+                        <ul className="hide-on-large-only tabs tabs-fixed-width tab-demo z-depth-1 mobile">
+                            <li className="tab"><Link to="/" className="active">Highlights</Link></li>
+                            <li className="tab"><Link to="/goals">Goals</Link></li>
+                            <li className="tab"><Link to="/spanish">Español</Link></li>
                         </ul>
                     </div>
                 </nav>

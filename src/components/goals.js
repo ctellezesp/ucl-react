@@ -6,7 +6,7 @@ export default class Goals extends Component {
   constructor(props){
     super(props);
     this.state = {
-      current: 'https://www.youtube.com/embed/X3Zs-HZczUM',
+      current: '',
       data: []
     }
     this.myFrame = this.myFrame.bind(this);
@@ -21,7 +21,8 @@ export default class Goals extends Component {
       });
       console.log(en);
       this.setState({
-        data: en
+        data: en,
+        current: en[0].data().frame
       })
     })
     .catch(err => {

@@ -19,6 +19,9 @@ import CreateGoals from './components/create-goals';
 import EditGoals from './components/edit-goals';
 import Player from './components/player';
 import AddTeams from './components/add-teams';
+import EditTeams from './components/edit-teams';
+import TeamsList from './components/teams';
+import GoalsList from './components/goals-list';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -42,12 +45,15 @@ class Main extends React.Component{
                 <Route path="/" exact component={HighlightsList} />
                 <Route path="/edit/:id" component={EditHighlights} />
                 <Route path="/create" component={CreateHighlights} />
+                <Route path="/goals-list" component={GoalsList} />
                 <Route path="/goals" component={Goals} />
                 <Route path="/spanish" component={Spanish} />
                 <Route path="/create-goals" component={CreateGoals} />
                 <Route path="/edit-goals/:id" component={EditGoals} />
                 <Route path="/player/:id" component={Player} />
+                <Route path="/teams" component={TeamsList} />
                 <Route path="/add-teams" component={AddTeams} />
+                <Route path="/edit-teams/:id" component={EditTeams} />
             </Router>
         );
     }
