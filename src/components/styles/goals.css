@@ -1,0 +1,57 @@
+.gallery{
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+.row{
+    margin-bottom: 0px !important;
+}
+
+.row .col{
+    padding: 0 5px !important;
+}
+
+.card img{
+    width: 60px;
+    height: 60px;
+}
+
+.card{
+    cursor: pointer;
+    display: inline-block;
+    width: 250px;
+}
+
+.card-content{
+	background: url(https://uclbranding.uefa.com/assets/img/carousel-1.jpg) !important;
+    background-position: bottom !important;
+}
+
+.season{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background: lightslategrey;
+    padding: 2px;
+}
+
+@media only screen and (min-width: 993px) {
+    .card{
+        display: block !important;
+        width: auto !important;
+    } 
+
+    .gallery{
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    height: 500px !important;
+    width: auto !important;
+    }
+}
