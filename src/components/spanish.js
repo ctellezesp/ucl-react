@@ -68,6 +68,7 @@ export default class Spanish extends Component {
               })}
             </div>
           </div>
+          <div className="hide-on-large-only bug"></div>
         </div>
     )
   }

@@ -1,6 +1,10 @@
 #main{
     margin-top: 1% !important;
-  }
-  *{
+}
+*{
     font-family: 'Titillium Web', sans-serif;
-  }
+}
+
+.bug{
+  margin-bottom: 30px;
+}

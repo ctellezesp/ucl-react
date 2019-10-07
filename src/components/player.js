@@ -53,6 +53,7 @@ export default class Player extends Component {
                     )
                   })}
                 </div>
+                <div className="hide-on-large-only bug"></div>
             </div>
         )
     }
