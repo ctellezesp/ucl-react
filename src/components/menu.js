@@ -11,7 +11,8 @@ export default class Menu extends Component {
             <div className="navbar-fixed">
                 <nav className="blue">
                     <div className="nav-wrapper">
-                        <a href="#!" className="brand-logo">{this.props.title}</a>
+                        <a href="#!" className="brand-logo hide-on-med-and-down">{this.props.title}</a>
+                        <a href="#!" className="brand-logo hide-on-large-only">UCL</a>
                         <ul className="right hide-on-med-and-down">
                             <li><Link to="/">Highlights</Link></li>
                             <li><Link to="/goals">Goals</Link></li>
