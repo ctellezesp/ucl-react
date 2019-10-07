@@ -8,21 +8,22 @@ import Spanish from './spanish';
 export default class Menu extends Component {
     render() {
         return (
-            <div className="App">
-              <section className="top-nav">
-                <div>
-                  <h5>{this.props.title}</h5>
-                </div>
-                <input id="menu-toggle" type="checkbox" />
-                <label className='menu-button-container' htmlFor="menu-toggle">
-                <div className='menu-button'></div>
-              </label>
-                <ul className="menu">
-                  <li><Link to="/">Highlights</Link></li>
-                  <li><Link to="/goals">Goals</Link></li>
-                  <li><Link to="/spanish">Español</Link></li>
-                </ul>
-              </section>
+            <div className="navbar-fixed">
+                <nav className="blue">
+                    <div className="nav-wrapper">
+                        <a href="#!" className="brand-logo">{this.props.title}</a>
+                        <ul className="right hide-on-med-and-down">
+                            <li><Link to="/">Highlights</Link></li>
+                            <li><Link to="/goals">Goals</Link></li>
+                            <li><Link to="/spanish">Español</Link></li>
+                        </ul>
+                        <ul class="hide-on-large-only tabs tabs-fixed-width tab-demo z-depth-1 mobile">
+                            <li class="tab"><Link to="/" className="active">Highlights</Link></li>
+                            <li class="tab"><Link to="/goals">Goals</Link></li>
+                            <li class="tab"><Link to="/spanish">Español</Link></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         )
     }
