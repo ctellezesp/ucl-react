@@ -69,7 +69,6 @@ export default class Goals extends Component {
               })}
             </div>
           </div>
-          <div className="hide-on-large-only bug"></div>
         </div>
     )
   }
