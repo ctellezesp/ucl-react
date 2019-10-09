@@ -22,6 +22,7 @@ import AddTeams from './components/add-teams';
 import EditTeams from './components/edit-teams';
 import TeamsList from './components/teams';
 import GoalsList from './components/goals-list';
+import Dashboard from './components/dashboard';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -54,6 +55,7 @@ class Main extends React.Component{
                 <Route path="/teams" component={TeamsList} />
                 <Route path="/add-teams" component={AddTeams} />
                 <Route path="/edit-teams/:id" component={EditTeams} />
+                <Route path="/dashboard" component={Dashboard} />
             </Router>
         );
     }

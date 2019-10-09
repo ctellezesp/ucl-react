@@ -6,7 +6,7 @@ export default class Spanish extends Component {
   constructor(props){
     super(props);
     this.state = {
-      current: 'https://www.youtube.com/embed/X3Zs-HZczUM',
+      current: '',
       data: []
     }
     this.myFrame = this.myFrame.bind(this);
@@ -21,7 +21,8 @@ export default class Spanish extends Component {
       });
       console.log(es);
       this.setState({
-        data: es
+        data: es,
+        current: es[0].data().frame
       })
     })
     .catch(err => {
