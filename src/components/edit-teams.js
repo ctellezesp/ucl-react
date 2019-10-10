@@ -74,15 +74,15 @@ export default class EditTeams extends Component {
           <div className="row">
             <div className="input-field col s12 l8">
               <input id="team" type="text" className="validate" value={this.state.team} onChange={this.myTeam}/>
-              <label htmlFor="team">Team Name</label>
+              <label className="active" htmlFor="team">Team Name</label>
             </div>
             <div className="input-field col s12 l4">
               <input id="abr" type="text" className="validate" value={this.state.abr} onChange={this.myAbr} maxLength="3"/>
-              <label htmlFor="abr">Team Abreviaton</label>
+              <label className="active" htmlFor="abr">Team Abreviaton</label>
             </div>
             <div className="input-field col s12 l12">
               <input id="img" type="text" className="validate" value={this.state.img} onChange={this.myImg}/>
-              <label htmlFor="img">Team Logo</label>
+              <label className="active" htmlFor="img">Team Logo</label>
             </div>
           </div>
           <a className="waves-effect waves-light btn right" onClick={this.edit}><i className="material-icons left">save</i>Save</a>

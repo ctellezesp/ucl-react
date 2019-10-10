@@ -107,15 +107,15 @@ export default class EditHighlights extends Component {
                   <div className="row">
                     <div className="input-field col s12 l12">
                       <input id="title" type="text" className="validate" value={this.state.title} onChange={this.myTitle} />
-                      <label htmlFor="title">Title</label>
+                      <label className="active" htmlFor="title">Title</label>
                     </div>
                     <div className="input-field col s12 l4">
                       <input id="date" type="date" className="validate" value={this.state.date} onChange={this.myDate}/>
-                      <label htmlFor="date">Date</label>
+                      <label className="active" htmlFor="date">Date</label>
                     </div>
                     <div className="input-field col s12 l4">
                       <input id="season" type="text" className="validate" value={this.state.season} onChange={this.mySeason}/>
-                      <label htmlFor="season">Season</label>
+                      <label className="active" htmlFor="season">Season</label>
                     </div>
                     <div className="input-field col s12 l4">
                       <select class="browser-default" value={this.state.broadcaster} onChange={this.myBroadcaster}>
@@ -129,11 +129,11 @@ export default class EditHighlights extends Component {
                     </div>
                     <div className="input-field col s12 l12">
                       <textarea id="frame" className="materialize-textarea" value={this.state.frame} onChange={this.myFrame}></textarea>
-                      <label htmlFor="frame">Frame</label>
+                      <label className="active" htmlFor="frame">Frame</label>
                     </div>
                     <div className="input-field col s12 l12">
                       <textarea id="matches" className="materialize-textarea" value={this.state.matches} onChange={this.myMatches}></textarea>
-                      <label htmlFor="matches">Matches</label>
+                      <label className="active" htmlFor="matches">Matches</label>
                     </div>
                   </div>
                   <a className="waves-effect waves-light btn right" onClick={this.edit}><i className="material-icons left">save</i>Edit</a>
