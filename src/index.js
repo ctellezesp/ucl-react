@@ -24,6 +24,7 @@ import TeamsList from './components/teams';
 import GoalsList from './components/goals-list';
 import Dashboard from './components/dashboard';
 import Share from './components/share';
+import HighlightsPanel from './components/highlights-list';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -45,6 +46,7 @@ class Main extends React.Component{
             <Router>
                 <Menu title={this.state.title}></Menu>
                 <Route path="/" exact component={HighlightsList} />
+                <Route path="/highlights-panel" exact component={HighlightsPanel} />
                 <Route path="/edit/:id" component={EditHighlights} />
                 <Route path="/create" component={CreateHighlights} />
                 <Route path="/goals-list" component={GoalsList} />

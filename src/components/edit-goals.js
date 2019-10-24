@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "../firebase/config";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 export default class EditGoals extends Component {
   constructor(props){
@@ -28,7 +30,6 @@ export default class EditGoals extends Component {
   componentDidMount(){
     firebase.db.collection("ucl-goals").doc(this.state.id).get()
     .then(res => {
-      console.log(res.docs);
       this.setState({
         home: res.data().home,
         away: res.data().away,
@@ -45,11 +46,9 @@ export default class EditGoals extends Component {
 
     firebase.db.collection("ucl-teams").orderBy('team', 'asc').get()
     .then(res => {
-      console.log(res.docs[0].data());
       this.setState({
         data: res.docs
       });
-      console.log(this.state.data[0].data().img);
     })
     .catch(err => {
       console.log(err);
@@ -110,12 +109,14 @@ export default class EditGoals extends Component {
     }
     firebase.db.collection("ucl-goals").doc(this.state.id).set(editData, {merge: true})
     .then(res => {
-      console.log(res);
-      window.alert("Data edited");
+      swal("Data Edited!", "Data edited correctly", "success")
+      .then(() => {
+        this.props.history.push(`/share/${this.state.id}`);
+      });
     })
     .catch(err => {
       console.log(err);
-      window.alert("Error");
+      swal("Error", "Please check the configuration", "error");
     })
   }
 
@@ -171,6 +172,11 @@ export default class EditGoals extends Component {
                   </div>
                 </div>
                 <a class="waves-effect waves-light btn right" onClick={this.edit}><i class="material-icons left">save</i>Edit</a>
+              </div>
+              <div className="fixed-action-btn">
+                <Link to="/dashboard" className="btn-floating btn-large red">
+                  <i className="large material-icons">home</i>
+                </Link>
               </div>
           </div>
       )

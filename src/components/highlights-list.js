@@ -4,20 +4,19 @@ import firebase from "../firebase/config";
 import './styles/index.css';
 import swal from 'sweetalert';
 
-export default class GoalsList extends Component {
+export default class HighlightsPanel extends Component {
   constructor(props){
     super(props);
     this.state = {
-      goals: []
+      matches: []
     }
-    this.delete = this.delete.bind(this);
   }
 
   componentDidMount(){
-    firebase.db.collection("ucl-goals").orderBy('date', 'desc').get()
+    firebase.db.collection("ucl-highlights").orderBy('date', 'desc').get()
     .then(res => {
       this.setState({
-        goals: res.docs
+        matches: res.docs
       })
     })
     .catch(err => {
@@ -25,7 +24,7 @@ export default class GoalsList extends Component {
     });
   }
 
-  delete(goal){
+  delete(highlights){
     swal({
       title: "Are you sure?",
       text: "You will not be able to recover this match!",
@@ -35,9 +34,9 @@ export default class GoalsList extends Component {
     })
     .then((willDelete) => {
       if (willDelete) {
-        firebase.db.collection("ucl-goals").doc(goal).delete()
+        firebase.db.collection("ucl-highlights").doc(highlights).delete()
         .then(res => {
-          swal("Goal Eliminated correctly", {
+          swal("Highlight Eliminated correctly", {
             icon: "success",
           });
         })
@@ -47,7 +46,7 @@ export default class GoalsList extends Component {
           });
         })
       } else {
-        swal("You don't deleted this goal");
+        swal("You don't deleted this highlight");
       }
     });
   }
@@ -56,32 +55,27 @@ export default class GoalsList extends Component {
       return (
           <div className="row">
               <div className="col s12 l10 offset-l1">
-              <Link to="/create-goals" className="waves-effect waves-light btn right"><i className="material-icons left">add</i>Add Goal</Link>
-                <table className="striped centered">
+                <table className="striped centered responsive-table">
                   <thead>
                     <tr>
-                        <th>Home</th>
-                        <th>Away</th>
-                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Broadcaster</th>
                         <th>Season</th>
-                        <th>Language</th>
+                        <th></th>
                         <th>Edit</th>
                         <th>Delete</th>
-                        <th>Share</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    {this.state.goals.map((item, index) => {
+                    {this.state.matches.map((item, index) => {
                       return (<tr key={index}>
-                        <td><img src={item.data().home} /></td>
-                        <td><img src={item.data().away} /></td>
-                        <td>{item.data().title}</td>
+                        <td>{item.data().date}</td>
+                        <td><img src={item.data().broadcaster}/></td>
                         <td>{item.data().season}</td>
-                        <td>{item.data().lang}</td>
-                        <td><Link to={`/edit-goals/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
-                        <td><i className="material-icons menu-icon" onClick={() => this.delete(item.ref.id)}>delete</i></td>
-                        <td><Link to={`/share/${item.ref.id}`}><i className="material-icons play-icon">share</i></Link></td>
+                        <td>{item.data().title}</td>
+                        <td><Link to={`/edit/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
+                        <td><i className="material-icons play-icon" onClick={() => this.delete(item.ref.id)}>delete</i></td>
                       </tr>)
                     })}
                   </tbody>

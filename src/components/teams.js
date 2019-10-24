@@ -14,7 +14,6 @@ export default class TeamsList extends Component {
   componentDidMount(){
     firebase.db.collection("ucl-teams").orderBy('team', 'asc').get()
     .then(res => {
-      console.log(res.docs);
       this.setState({
         teams: res.docs
       })
@@ -26,9 +25,10 @@ export default class TeamsList extends Component {
 
   render() {
       return (
-          <div class="row">
-              <div class="col s12 l10 offset-l1">
-                <table class="striped centered responsive-table">
+          <div className="row">
+              <div className="col s12 l10 offset-l1">
+              <Link to="/add-teams" className="waves-effect waves-light btn right"><i className="material-icons left">add</i>Add Team</Link>
+                <table className="striped centered">
                   <thead>
                     <tr>
                         <th>Name</th>
@@ -47,6 +47,11 @@ export default class TeamsList extends Component {
                     })}
                   </tbody>
                 </table>
+              </div>
+              <div className="fixed-action-btn">
+                <Link to="/dashboard" className="btn-floating btn-large red">
+                  <i className="large material-icons">home</i>
+                </Link>
               </div>
           </div>
       )

@@ -8,6 +8,20 @@ export default class Dashboard extends Component {
             <div className="col s12 l8 offset-l2">
                 <div className="row">
                     <div className="col s12 l6 center-align">
+                        <Link to="/create">
+                            <div className="card">
+                                <h5 className="items">Create Highlights</h5>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col s12 l6 center-align">
+                        <Link to="/highlights-panel">
+                            <div className="card">
+                                <h5 className="items">Highlights List</h5>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col s12 l6 center-align">
                         <Link to="/create-goals">
                             <div className="card">
                                 <h5 className="items">Create Goals</h5>
@@ -18,13 +32,6 @@ export default class Dashboard extends Component {
                         <Link to="/goals-list">
                             <div className="card">
                                 <h5 className="items">Goals List</h5>
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="col s12 l12 center-align">
-                        <Link to="/create">
-                            <div className="card">
-                                <h5 className="items">Create Highlights</h5>
                             </div>
                         </Link>
                     </div>

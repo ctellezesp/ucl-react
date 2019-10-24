@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "../firebase/config";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 export default class EditHighlights extends Component {
   constructor(props){
@@ -61,7 +63,6 @@ export default class EditHighlights extends Component {
     this.setState({
       frame: event.target.value
     });
-    console.log(this.state);
   }
 
   myMatches(event){
@@ -71,15 +72,12 @@ export default class EditHighlights extends Component {
   }
 
   myBroadcaster(event){
-    console.log("moving");
     this.setState({
       broadcaster: event.target.value
     });
-    console.log(this.state.broadcaster);
   }
 
   edit(){
-    console.log(this.state)
     const editData = {
       title: this.state.title,
       date: this.state.date,
@@ -90,12 +88,14 @@ export default class EditHighlights extends Component {
     }
     firebase.db.collection("ucl-highlights").doc(this.state.id).set(editData, {merge: true})
     .then(res => {
-      console.log(res);
-      window.alert("Data edited succesfully");
+      swal("Data Edited!", "Data edited correctly", "success")
+      .then(() => {
+        this.props.history.push(`/player/${this.state.id}`);
+      });
     })
     .catch(err => {
       console.log(err);
-      window.alert("Error");
+      swal("Error", "Please check the configuration", "error");
     });
   }
 
@@ -137,6 +137,11 @@ export default class EditHighlights extends Component {
                     </div>
                   </div>
                   <a className="waves-effect waves-light btn right" onClick={this.edit}><i className="material-icons left">save</i>Edit</a>
+                </div>
+                <div className="fixed-action-btn">
+                  <Link to="/dashboard" className="btn-floating btn-large red">
+                    <i className="large material-icons">home</i>
+                  </Link>
                 </div>
             </div>
       )

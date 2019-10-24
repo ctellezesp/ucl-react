@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "../firebase/config";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 export default class EditTeams extends Component {
   constructor(props){
@@ -38,7 +40,6 @@ export default class EditTeams extends Component {
   componentDidMount(){
     firebase.db.collection("ucl-teams").doc(this.state.id).get()
     .then(res => {
-        console.log(res.data());
         this.setState({
             team: res.data().team,
             abr: res.data().abr,
@@ -58,12 +59,14 @@ export default class EditTeams extends Component {
     };
     firebase.db.collection("ucl-teams").doc(this.state.id).set(editData, {merge: true})
     .then(res => {
-      console.log(res);
-      window.alert("Data edited succesfully");
+      swal("Data Edited!", "Data edited correctly", "success")
+      .then(() => {
+        this.props.history.push("/teams");
+      });
     })
     .catch(err => {
       console.log(err);
-      window.alert("Error");
+      swal("Error", "Please check the configuration", "error");
     });
   }
 
@@ -89,6 +92,11 @@ export default class EditTeams extends Component {
         </div>
         <div className="col s12 l4 center-align">
           <img src={this.state.img} width="140px" height="auto" />
+        </div>
+        <div className="fixed-action-btn">
+          <Link to="/dashboard" className="btn-floating btn-large red">
+            <i className="large material-icons">home</i>
+          </Link>
         </div>
       </div>);
   }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "../firebase/config";
+import swal from 'sweetalert';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class AddTeams extends Component {
   constructor(props){
@@ -34,15 +36,16 @@ export default class AddTeams extends Component {
   }
 
   save(){
-    console.log(this.state);
     firebase.db.collection("ucl-teams").add(this.state)
     .then(res => {
-      console.log(res);
-      window.alert("Team added Correctly")
+      swal("Team Added", "Team added correctly", "success")
+      .then(() => {
+        this.props.history.push('/teams');
+      });
     })
     .catch(err => {
       console.log(err);
-      window.alert("Error");
+      swal("Error", "An error ocurred", "error");
     });
   }
 
@@ -56,7 +59,7 @@ export default class AddTeams extends Component {
               <label htmlFor="team">Team Name</label>
             </div>
             <div className="input-field col s12 l4">
-              <input id="abr" type="text" className="validate" onChange={this.myAbr} maxlength="3"/>
+              <input id="abr" type="text" className="validate" onChange={this.myAbr} maxLength="3"/>
               <label htmlFor="abr">Team Abreviaton</label>
             </div>
             <div className="input-field col s12 l12">
@@ -68,6 +71,11 @@ export default class AddTeams extends Component {
         </div>
         <div className="col s12 l4 center-align">
           <img src={this.state.img} width="140px" height="auto" />
+        </div>
+        <div className="fixed-action-btn">
+          <Link to="/dashboard" className="btn-floating btn-large red">
+            <i className="large material-icons">home</i>
+          </Link>
         </div>
       </div>);
   }

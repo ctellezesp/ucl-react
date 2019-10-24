@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import firebase from "../firebase/config";
+import swal from 'sweetalert';
 
 export default class CreateGoals extends Component {
   constructor(props){
@@ -27,11 +29,9 @@ export default class CreateGoals extends Component {
   componentDidMount(){
     firebase.db.collection("ucl-teams").orderBy('team', 'asc').get()
     .then(res => {
-      console.log(res.docs);
       this.setState({
         data: res.docs
       });
-      console.log(this.state.data[0].data());
     })
     .catch(err => {
       console.log(err);
@@ -92,12 +92,14 @@ export default class CreateGoals extends Component {
     }
     firebase.db.collection("ucl-goals").add(toSave)
     .then(res => {
-      console.log(res);
-      window.alert("Data added");
+      swal("Goal Added", "Goal Match added correctly", "success")
+      .then(() => {
+        this.props.history.push('/goals-list');
+      });
     })
     .catch(err => {
       console.log(err);
-      window.alert("Error");
+      swal("Error", "An error ocurred", "error");
     })
   }
 
@@ -107,7 +109,7 @@ export default class CreateGoals extends Component {
               <div className="col s12 l10 offset-l1">
                 <div className="row">
                   <div className="input-field col s12 l6">
-                    <select class="browser-default" onChange={this.myHome}>
+                    <select className="browser-default" onChange={this.myHome}>
                         <option value="" disabled selected>Choose your home team</option>
                         {this.state.data.map((item, index) => {
                           return(
@@ -117,7 +119,7 @@ export default class CreateGoals extends Component {
                       </select>
                   </div>
                   <div className="input-field col s12 l6">
-                    <select class="browser-default" onChange={this.myAway}>
+                    <select className="browser-default" onChange={this.myAway}>
                         <option value="" disabled selected>Choose your away team</option>
                         {this.state.data.map((item, index) => {
                           return(
@@ -139,18 +141,23 @@ export default class CreateGoals extends Component {
                     <label htmlFor="season">Season</label>
                   </div>
                   <div className="input-field col s12 l4">
-                    <select class="browser-default" onChange={this.myLang}>
+                    <select className="browser-default" onChange={this.myLang}>
                         <option value="" disabled selected>Choose your language</option>
                         <option value="en">English</option>
                         <option value="es">Spanish</option>
                       </select>
                   </div>
                   <div className="input-field col s12 l12">
-                    <textarea id="frame" class="materialize-textarea" onChange={this.myFrame}></textarea>
+                    <textarea id="frame" className="materialize-textarea" onChange={this.myFrame}></textarea>
                     <label htmlFor="frame">Frame</label>
                   </div>
                 </div>
-                <a class="waves-effect waves-light btn right" onClick={this.save}><i class="material-icons left">save</i>Save</a>
+                <a className="waves-effect waves-light btn right" onClick={this.save}><i className="material-icons left">save</i>Save</a>
+              </div>
+              <div className="fixed-action-btn">
+                <Link to="/dashboard" className="btn-floating btn-large red">
+                  <i className="large material-icons">home</i>
+                </Link>
               </div>
           </div>
       )
