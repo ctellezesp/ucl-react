@@ -5,4 +5,13 @@ body{
 .tabs{
     position: fixed !important;
     bottom: 0;
-  }
+    color: blue !important;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active{
+  color: blue !important;
+}
+
+.tabs .tab a{
+  color: blue !important;
+}

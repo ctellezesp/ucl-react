@@ -19,3 +19,8 @@ code {
 .play-icon{
   color: black !important;
 }
+
+.menu-icon{
+  color: black;
+  cursor: pointer;
+}

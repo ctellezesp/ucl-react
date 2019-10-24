@@ -8,3 +8,12 @@
 .bug{
   margin-bottom: 30px;
 }
+
+img{
+  width: 4em;
+  height: 4em;
+}
+
+.team-vs{
+  font-size: 3em;
+}

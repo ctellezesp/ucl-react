@@ -23,6 +23,7 @@ import EditTeams from './components/edit-teams';
 import TeamsList from './components/teams';
 import GoalsList from './components/goals-list';
 import Dashboard from './components/dashboard';
+import Share from './components/share';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -51,6 +52,7 @@ class Main extends React.Component{
                 <Route path="/spanish" component={Spanish} />
                 <Route path="/create-goals" component={CreateGoals} />
                 <Route path="/edit-goals/:id" component={EditGoals} />
+                <Route path="/share/:id" component={Share} />
                 <Route path="/player/:id" component={Player} />
                 <Route path="/teams" component={TeamsList} />
                 <Route path="/add-teams" component={AddTeams} />

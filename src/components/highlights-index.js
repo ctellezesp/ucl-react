@@ -26,9 +26,9 @@ export default class HighlightsList extends Component {
 
   render() {
       return (
-          <div class="row">
-              <div class="col s12 l10 offset-l1">
-                <table class="striped centered responsive-table">
+          <div className="row">
+              <div className="col s12 l10 offset-l1">
+                <table className="striped centered responsive-table">
                   <thead>
                     <tr>
                         <th>Date</th>

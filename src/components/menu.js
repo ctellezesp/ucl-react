@@ -19,7 +19,7 @@ export default class Menu extends Component {
                             <li><Link to="/spanish">Español</Link></li>
                         </ul>
                         <ul className="hide-on-large-only tabs tabs-fixed-width tab-demo z-depth-1 mobile">
-                            <li className="tab"><Link to="/" className="active">Highlights</Link></li>
+                            <li className="tab"><Link to="/">Highlights</Link></li>
                             <li className="tab"><Link to="/goals">Goals</Link></li>
                             <li className="tab"><Link to="/spanish">Español</Link></li>
                         </ul>

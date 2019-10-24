@@ -9,6 +9,7 @@ export default class GoalsList extends Component {
     this.state = {
       goals: []
     }
+    this.delete = this.delete.bind(this);
   }
 
   componentDidMount(){
@@ -24,6 +25,18 @@ export default class GoalsList extends Component {
     });
   }
 
+  delete(goal){
+    firebase.db.collection("ucl-goals").doc(goal).delete()
+    .then(res => {
+      console.log(res);
+      window.alert("Goal Deleted");
+    })
+    .catch(err => {
+      console.log(err);
+      window.alert("Error");
+    })
+  }
+
   render() {
       return (
           <div class="row">
@@ -37,6 +50,8 @@ export default class GoalsList extends Component {
                         <th>Season</th>
                         <th>Language</th>
                         <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Share</th>
                     </tr>
                   </thead>
 
@@ -49,6 +64,8 @@ export default class GoalsList extends Component {
                         <td>{item.data().season}</td>
                         <td>{item.data().lang}</td>
                         <td><Link to={`/edit-goals/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
+                        <td><i className="material-icons menu-icon" onClick={() => this.delete(item.ref.id)}>delete</i></td>
+                        <td><Link to={`/share/${item.ref.id}`}><i className="material-icons play-icon">share</i></Link></td>
                       </tr>)
                     })}
                   </tbody>
