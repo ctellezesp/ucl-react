@@ -123,52 +123,55 @@ export default class EditGoals extends Component {
   render() {
       return (
           <div className="row">
+            <div className="card">
               <div className="col s12 l10 offset-l1">
-                <div className="row">
-                  <div className="input-field col s12 l6 center-align">
-                    <img src={this.state.home} width="140px" />
-                    <select class="browser-default" onChange={this.myHome}>
-                        <option value="" disabled selected>Choose new team home</option>
-                        {this.state.data.map((item, index) => {
-                          return(
-                            <option key={index} value={item.data().img}>{item.data().team}</option>
-                          )
-                        })}
-                      </select>
-                  </div>
-                  <div className="input-field col s12 l6 center-align">
-                    <img src={this.state.away} width="140px" />
-                    <select class="browser-default" onChange={this.myAway}>
-                      <option value="" disabled selected>Choose new team away</option>
-                        {this.state.data.map((item, index) => {
-                          return(
-                            <option key={index} value={item.data().img}>{item.data().team}</option>
-                          )
-                        })}
-                      </select>
-                  </div>
-                  <div className="input-field col s12 l12">
-                    <input id="title" type="text" className="validate" value={this.state.title} onChange={this.myTitle} />
-                    <label className="active" htmlFor="title">Title</label>
-                  </div>
-                  <div className="input-field col s12 l4">
-                    <input id="date" type="date" className="validate" value={this.state.date} onChange={this.myDate} />
-                    <label className="active" htmlFor="date">Date</label>
-                  </div>
-                  <div className="input-field col s12 l4">
-                    <input id="season" type="text" className="validate" value={this.state.season} onChange={this.mySeason} />
-                    <label className="active" htmlFor="season">Season</label>
-                  </div>
-                  <div className="input-field col s12 l4">
-                    <select class="browser-default" onChange={this.myLang}>
-                        <option value={this.state.lang} disabled selected>{this.state.lang}</option>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                      </select>
-                  </div>
-                  <div className="input-field col s12 l12">
-                    <textarea id="frame" class="materialize-textarea" value={this.state.frame} onChange={this.myFrame}></textarea>
-                    <label className="active" htmlFor="frame">Frame</label>
+                <div className="card card-dsh">
+                  <div className="row">
+                    <div className="input-field col s12 l6 center-align">
+                      <img src={this.state.home} width="140px" />
+                      <select class="browser-default" onChange={this.myHome}>
+                          <option value="" disabled selected>Choose new team home</option>
+                          {this.state.data.map((item, index) => {
+                            return(
+                              <option key={index} value={item.data().img}>{item.data().team}</option>
+                            )
+                          })}
+                        </select>
+                    </div>
+                    <div className="input-field col s12 l6 center-align">
+                      <img src={this.state.away} width="140px" />
+                      <select class="browser-default" onChange={this.myAway}>
+                        <option value="" disabled selected>Choose new team away</option>
+                          {this.state.data.map((item, index) => {
+                            return(
+                              <option key={index} value={item.data().img}>{item.data().team}</option>
+                            )
+                          })}
+                        </select>
+                    </div>
+                    <div className="input-field col s12 l12">
+                      <input id="title" type="text" className="validate" value={this.state.title} onChange={this.myTitle} />
+                      <label className="active" htmlFor="title">Title</label>
+                    </div>
+                    <div className="input-field col s12 l4">
+                      <input id="date" type="date" className="validate" value={this.state.date} onChange={this.myDate} />
+                      <label className="active" htmlFor="date">Date</label>
+                    </div>
+                    <div className="input-field col s12 l4">
+                      <input id="season" type="text" className="validate" value={this.state.season} onChange={this.mySeason} />
+                      <label className="active" htmlFor="season">Season</label>
+                    </div>
+                    <div className="input-field col s12 l4">
+                      <select class="browser-default" onChange={this.myLang}>
+                          <option value={this.state.lang} disabled selected>{this.state.lang}</option>
+                          <option value="en">English</option>
+                          <option value="es">Spanish</option>
+                        </select>
+                    </div>
+                    <div className="input-field col s12 l12">
+                      <textarea id="frame" class="materialize-textarea" value={this.state.frame} onChange={this.myFrame}></textarea>
+                      <label className="active" htmlFor="frame">Frame</label>
+                    </div>
                   </div>
                 </div>
                 <a class="waves-effect waves-light btn right" onClick={this.edit}><i class="material-icons left">save</i>Edit</a>
@@ -178,6 +181,7 @@ export default class EditGoals extends Component {
                   <i className="large material-icons">home</i>
                 </Link>
               </div>
+            </div>
           </div>
       )
   }

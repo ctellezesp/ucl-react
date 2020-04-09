@@ -1,5 +1,5 @@
 table img {
-	width: auto;
-	height: 2em;
-	display: inline-block;
+	width: auto !important;
+	height: 2em !important;
+	display: inline-block !important;
 }

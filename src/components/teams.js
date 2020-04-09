@@ -27,26 +27,28 @@ export default class TeamsList extends Component {
       return (
           <div className="row">
               <div className="col s12 l10 offset-l1">
-              <Link to="/add-teams" className="waves-effect waves-light btn right"><i className="material-icons left">add</i>Add Team</Link>
-                <table className="striped centered">
-                  <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Abr</th>
-                        <th>Edit</th>
-                    </tr>
-                  </thead>
+                <Link to="/add-teams" className="waves-effect waves-light btn right"><i className="material-icons left">add</i>Add Team</Link>
+                <div className="card">
+                  <table className="striped centered">
+                    <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Abr</th>
+                          <th>Edit</th>
+                      </tr>
+                    </thead>
 
-                  <tbody>
-                    {this.state.teams.map((item, index) => {
-                      return (<tr key={index}>
-                        <td>{item.data().team}</td>
-                        <td>{item.data().abr}</td>
-                        <td><Link to={`/edit-teams/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
-                      </tr>)
-                    })}
-                  </tbody>
-                </table>
+                    <tbody>
+                      {this.state.teams.map((item, index) => {
+                        return (<tr key={index}>
+                          <td>{item.data().team}</td>
+                          <td>{item.data().abr}</td>
+                          <td><Link to={`/edit-teams/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
+                        </tr>)
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div className="fixed-action-btn">
                 <Link to="/dashboard" className="btn-floating btn-large red">

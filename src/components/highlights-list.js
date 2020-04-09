@@ -55,31 +55,33 @@ export default class HighlightsPanel extends Component {
       return (
           <div className="row">
               <div className="col s12 l10 offset-l1">
-                <table className="striped centered responsive-table">
-                  <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Broadcaster</th>
-                        <th>Season</th>
-                        <th></th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                  </thead>
+                <div className="card">
+                  <table className="striped centered responsive-table">
+                    <thead>
+                      <tr>
+                          <th>Date</th>
+                          <th>Broadcaster</th>
+                          <th>Season</th>
+                          <th></th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                      </tr>
+                    </thead>
 
-                  <tbody>
-                    {this.state.matches.map((item, index) => {
-                      return (<tr key={index}>
-                        <td>{item.data().date}</td>
-                        <td><img src={item.data().broadcaster}/></td>
-                        <td>{item.data().season}</td>
-                        <td>{item.data().title}</td>
-                        <td><Link to={`/edit/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
-                        <td><i className="material-icons play-icon" onClick={() => this.delete(item.ref.id)}>delete</i></td>
-                      </tr>)
-                    })}
-                  </tbody>
-                </table>
+                    <tbody>
+                      {this.state.matches.map((item, index) => {
+                        return (<tr key={index}>
+                          <td>{item.data().date}</td>
+                          <td><img src={item.data().broadcaster}/></td>
+                          <td>{item.data().season}</td>
+                          <td>{item.data().title}</td>
+                          <td><Link to={`/edit/${item.ref.id}`}><i className="material-icons play-icon">edit</i></Link></td>
+                          <td><i className="material-icons play-icon" onClick={() => this.delete(item.ref.id)}>delete</i></td>
+                        </tr>)
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div className="fixed-action-btn">
                 <Link to="/dashboard" className="btn-floating btn-large red">

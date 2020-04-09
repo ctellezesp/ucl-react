@@ -33,13 +33,14 @@ export default class Player extends Component {
 
     render() {
         return (
-            <div className="row" id="main">
-                <div className="col s12 l8">
-                  <div className="video-container">
-                    <iframe src={this.state.data.frame} width="640" height="480" allowFullScreen></iframe>
-                  </div>
+          <div className="row" id="main">
+              <div className="col s12 l8">
+                <div className="video-container">
+                  <iframe src={this.state.data.frame} width="640" height="480" allowFullScreen></iframe>
                 </div>
-                <div className="col s12 l4 center-align">
+              </div>
+              <div className="col s12 l4 center-align">
+                <div className="card card-detail">
                   <p><b>{this.state.data.title}</b></p>
                   <div className="divider"></div>
                   <p>{this.state.data.date}</p>
@@ -53,7 +54,8 @@ export default class Player extends Component {
                     )
                   })}
                 </div>
-            </div>
+              </div>
+          </div>
         )
     }
 }

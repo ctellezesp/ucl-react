@@ -34,22 +34,24 @@ export default class Share extends Component {
                   </div>
                 </div>
                 <div className="col s12 l4 center-align">
-                  <p><b>{this.state.data.title}</b></p>
-                  <div className="divider"></div>
-                  <div className="row center-align">
-                      <div className="col s4">
-                          <img src={this.state.data.home} />
-                      </div>
-                      <div className="col s4">
-                            <span className="team-vs">vs</span>
-                      </div>
-                      <div className="col s4">
-                          <img src={this.state.data.away} />
-                      </div>
-                  </div>
-                  <p>Date: {this.state.data.date}</p>
-                  <p>Season: {this.state.data.season}</p>
+                  <div className="card card-detail">
+                    <p><b>{this.state.data.title}</b></p>
+                    <div className="divider"></div>
+                    <div className="row center-align">
+                        <div className="col s4">
+                            <img src={this.state.data.home} />
+                        </div>
+                        <div className="col s4">
+                              <span className="team-vs">vs</span>
+                        </div>
+                        <div className="col s4">
+                            <img src={this.state.data.away} />
+                        </div>
+                    </div>
+                    <p>Date: {this.state.data.date}</p>
+                    <p>Season: {this.state.data.season}</p>
                 </div>
+              </div>
             </div>
         )
     }
