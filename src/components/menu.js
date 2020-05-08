@@ -6,6 +6,9 @@ import Goals from './goals';
 import Spanish from './spanish';
 
 export default class Menu extends Component {
+    componentDidMount(){
+        console.log(window.location.pathname);
+    }
     render() {
         return (
             <div className="navbar-fixed">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Ripple} from 'react-preloaders';
 import firebase from "../firebase/config";
 import './styles/player.css';
 
@@ -8,7 +9,8 @@ export default class Share extends Component {
     console.log(props.match.params.id);
     this.state = {
       id: props.match.params.id,
-      data: []
+      data: [],
+      loading: true
     }
   }
 
@@ -17,7 +19,8 @@ export default class Share extends Component {
     .then(res => {
       console.log(res);
       this.setState({
-        data: res.data()
+        data: res.data(),
+        loading: false
       });
     })
     .catch(err => {
@@ -35,7 +38,7 @@ export default class Share extends Component {
                 </div>
                 <div className="col s12 l4 center-align">
                   <div className="card card-detail">
-                    <p><b>{this.state.data.title}</b></p>
+                    <p className="title-player"><b>{this.state.data.title}</b></p>
                     <div className="divider"></div>
                     <div className="row center-align">
                         <div className="col s4">
@@ -52,6 +55,7 @@ export default class Share extends Component {
                     <p>Season: {this.state.data.season}</p>
                 </div>
               </div>
+              <Ripple customLoading={this.state.loading}  background="#000b24" color="#FFFFFF"/>
             </div>
         )
     }

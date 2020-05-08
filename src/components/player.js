@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Ripple} from 'react-preloaders';
 import firebase from "../firebase/config";
 import './styles/player.css';
 
@@ -9,7 +10,8 @@ export default class Player extends Component {
     this.state = {
       id: props.match.params.id,
       data: {}, 
-      items: []
+      items: [],
+      loading: true
     }
   }
 
@@ -22,7 +24,8 @@ export default class Player extends Component {
       });
       //console.log(res.data().matches.split('\n'));
       this.setState({
-        items: res.data().matches.split('\n')
+        items: res.data().matches.split('\n'),
+        loading: false
       });
       console.log(this.state.items);
     })
@@ -41,7 +44,7 @@ export default class Player extends Component {
               </div>
               <div className="col s12 l4 center-align">
                 <div className="card card-detail">
-                  <p><b>{this.state.data.title}</b></p>
+                  <p className="title-player"><b>{this.state.data.title}</b></p>
                   <div className="divider"></div>
                   <p>{this.state.data.date}</p>
                   <p>Matches:</p>
@@ -55,6 +58,7 @@ export default class Player extends Component {
                   })}
                 </div>
               </div>
+              <Ripple customLoading={this.state.loading}  background="#000b24" color="#FFFFFF"/>
           </div>
         )
     }

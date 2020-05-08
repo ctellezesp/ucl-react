@@ -17,3 +17,11 @@ img{
 .team-vs{
   font-size: 3em;
 }
+
+.title-player{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 1.5em;
+}

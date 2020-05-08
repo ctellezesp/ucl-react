@@ -3,3 +3,12 @@ table img {
 	height: 2em !important;
 	display: inline-block !important;
 }
+
+table{
+	color: white;
+	background: #2196F3;
+}
+
+.play-icon{
+	color: white !important;
+}

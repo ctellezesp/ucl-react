@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Ripple} from 'react-preloaders';
 import firebase from "../firebase/config";
 import './styles/goals.css';
 
@@ -7,7 +8,8 @@ export default class Spanish extends Component {
     super(props);
     this.state = {
       current: '',
-      data: []
+      data: [],
+      loading: true
     }
     this.myFrame = this.myFrame.bind(this);
   }
@@ -22,7 +24,8 @@ export default class Spanish extends Component {
       console.log(es);
       this.setState({
         data: es,
-        current: es[0].data().frame
+        current: es[0].data().frame,
+        loading: false
       })
     })
     .catch(err => {
@@ -41,12 +44,12 @@ export default class Spanish extends Component {
   render() {
     return (
         <div className="row">
-          <div className="col s12 m8 offset-m2">
+          <div className="col s12 l8 offset-l2">
             <div className="video-container" id="play">
               <iframe src={this.state.current} width="640" height="480" allowFullScreen></iframe>
             </div>
           </div>
-          <div className="col s12 m12">
+          <div className="col s12 l12">
             <div className="gallery">
               {this.state.data.map((item, index)=> {
               return(
@@ -70,6 +73,7 @@ export default class Spanish extends Component {
               })}
             </div>
           </div>
+          <Ripple customLoading={this.state.loading}  background="#000b24" color="#FFFFFF"/>
         </div>
     )
   }

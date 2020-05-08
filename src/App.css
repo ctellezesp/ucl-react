@@ -4,6 +4,7 @@ body{
 
 .row{
   margin-bottom: 20px !important;
+  margin-right: 0 !important;
 }
 
 .img-index{
@@ -28,4 +29,14 @@ body{
 
 iframe{
   border: 0 !important;
+}
+
+@media only screen and (max-width: 728px){
+  body{
+    margin-bottom: 60px !important;
+  }
+
+  .card-detail{
+    width: 100% !important;
+  }
 }
